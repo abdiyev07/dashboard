@@ -1,18 +1,35 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+ <template>
+  <main class="main">
+    <div class="container">
+      <Header />
+      <Dashboard />
+      <transition name="fade-in" mode="out-in">
+      <Modal v-if="showModal"/>
+    </transition>
+    </div>
+  </main>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Header from "@/components/Header";
+import Dashboard from "@/components/Dashboard";
 
 export default {
-  name: 'Home',
+  name: "Home",
+  computed: {
+    dashboardList() {
+      return this.$store.getters.getDashboardList;
+    },
+    
+    showModal() {
+      return this.$store.getters.getModalValue
+    }
+  },
+
   components: {
-    HelloWorld
+    Header,
+    Dashboard,
+    Modal: () => import("@/components/Modal")
   }
-}
+};
 </script>

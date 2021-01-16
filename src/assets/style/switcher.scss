@@ -1,0 +1,25 @@
+.switcher {
+
+  &__on,
+  &__off {
+    display: inline-block;
+    padding: 0.4rem 2rem;
+    margin: 0 -0.2rem;
+    border-radius: 0.4rem;
+    background-color: $switcher-color;
+    box-sizing: content-box;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  &__on:hover,
+  &__on.switcher__on_active {
+    background-color: $switcher-on;
+  }
+
+  &__off:hover,
+  &__off.switcher__off_active {
+    background-color: $switcher-off;
+  }
+}

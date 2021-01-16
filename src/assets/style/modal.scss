@@ -1,0 +1,36 @@
+.card-modal {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 60%;
+  padding: 1.6rem 0.8rem;
+  border: 0.2rem solid gray;
+  border-radius: 0.8rem;
+  background-color: #FFFFFF;
+  z-index: 99;
+
+  &__wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, .5);
+    z-index: 9;
+  }
+
+  &__title,
+  &__body {
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+  }
+
+  &__title {
+    font-size: 2rem;
+  }
+
+  &__body {
+    font-size: 1.6rem;
+  }
+}

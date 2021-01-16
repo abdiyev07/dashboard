@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus,
+*:active {
+  outline: none;
+  border: none;
+}
+
+html {
+  font-family: Avenir,
+    Helvetica,
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: $main-color;
+  font-size: 10px;
+}
+
+.main,
+.section {
+  padding-top: 2rem;
+
+  &-title {
+    font-size: 2.2rem;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  &__add-button {
+    margin-left: 4rem;
+    padding: 0.8rem 2.5rem;
+    font-size: 1.6rem;
+    background-color: #FFFFFF;
+  }
+}
+
+.form {
+  padding: 2rem 1rem;
+}
+
+.button {
+  border-radius: 0.4rem;
+  cursor: pointer;
+  border: $default-border
+}
+
+
+.fade-in-enter-active {
+  animation: slide-in 400ms ease-out forwards;
+}
+
+.fade-in-leave-active {
+  animation: slide-out 400ms ease-out forwards;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

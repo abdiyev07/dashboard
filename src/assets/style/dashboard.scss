@@ -1,0 +1,39 @@
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 80vh;
+  border: $default-border;
+  padding: 2rem 1.6rem 0 1.6rem;
+
+  &__element {
+    border: $default-border;
+    border-radius: 2rem;
+    padding: 2rem 0.8rem;
+    min-height: 25rem;
+    max-height: 25rem;
+    cursor: pointer;
+
+    &-title,
+    &-body {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    &-title {
+      -webkit-line-clamp: 1;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    &-body {
+      -webkit-line-clamp: 9;
+      font-size: 1.6rem;
+      text-align: left;
+      white-space: pre-line;
+      overflow-wrap: anywhere;
+    }
+  }
+}

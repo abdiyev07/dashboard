@@ -1,32 +1,35 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  computed: {
+    dashboardList() {
+      return this.$store.getters.getDashboardList;
+    }
+  },
 
-#nav {
-  padding: 30px;
+  created() {
+    window.addEventListener("beforeunload", this.saveChanges);
+    const cards = localStorage.getItem("abdiyev_cards");
+    if (cards && cards.length) {
+      this.$store.dispatch("SET_DASHBOARD_LIST", JSON.parse(cards));
+    }
+  },
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+  methods: {
+    saveChanges() {
+      localStorage.setItem("abdiyev_cards", JSON.stringify(this.dashboardList));
+      window.removeEventListener("beforeunload", this.saveChanges);
     }
   }
-}
+};
+</script>
+
+<style lang="scss">
+@import "assets/style/bootstrap-grid.min.css";
+@import "assets/style/app";
 </style>
